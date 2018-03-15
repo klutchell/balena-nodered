@@ -21,7 +21,7 @@ chmod -R 700 "${HOME}/.ssh"
 
 # start ssh service
 if [ "$INITSYSTEM" != "on" ]; then
-	/usr/sbin/sshd -p 22 &
+	/usr/sbin/sshd -p 22
 else
 	rc-service sshd start
 fi
