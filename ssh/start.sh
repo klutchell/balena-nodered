@@ -20,4 +20,4 @@ chmod -R 700 "${HOME}/.ssh"
 /usr/bin/ssh-keygen -A
 
 # start ssh service
-rc-service ssh start
+rc-service sshd start
