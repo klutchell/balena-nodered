@@ -1,10 +1,18 @@
 version: '2'
 volumes: 
   resin-data:
+  ssh-data:
 services:
   node-red:
-    image: nodered/node-red-docker:rpi-v8
+    build: ./node-red
     ports:
       - '1880:1880'
     volumes: 
       - 'resin-data:/data'
+  ssh:
+    build: ./ssh
+    ports:
+      - '22:22'
+    volumes: 
+      - 'resin-data:/data'
+      - 'ssh-data:/root/.ssh'
