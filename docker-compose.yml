@@ -16,3 +16,11 @@ services:
     volumes: 
       - 'node-red-data:/data'
       - 'ssh-data:/root/.ssh'
+  cloud9:
+    build: ./cloud9
+    ports:
+      - '8181:8181'
+    volumes: 
+      - 'node-red-data:/data'
+      - 'ssh-data:/root/.ssh'
+    command: ["node", "server.js", "-p", "8181", "-w", "/data", "-l", "0.0.0.0", "-a", ":"]
