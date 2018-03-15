@@ -1,6 +1,6 @@
 version: '2'
 volumes: 
-  resin-data:
+  node-red-data:
   ssh-data:
 services:
   node-red:
@@ -8,11 +8,11 @@ services:
     ports:
       - '1880:1880'
     volumes: 
-      - 'resin-data:/data'
+      - 'node-red-data:/data'
   ssh:
     build: ./ssh
     ports:
       - '22:22'
     volumes: 
-      - 'resin-data:/data'
+      - 'node-red-data:/data'
       - 'ssh-data:/root/.ssh'
