@@ -20,4 +20,8 @@ chmod -R 700 "${HOME}/.ssh"
 /usr/bin/ssh-keygen -A
 
 # start ssh service
-rc-service sshd start
+if [ "$INITSYSTEM" != "on" ]; then
+	/usr/sbin/sshd -p 22 &
+else
+	rc-service sshd start
+fi
