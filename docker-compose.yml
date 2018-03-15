@@ -9,6 +9,7 @@ services:
       - '1880:1880'
     volumes: 
       - 'node-red-data:/data'
+    working_dir: /data
   ssh:
     build: ./ssh
     ports:
@@ -16,3 +17,4 @@ services:
     volumes: 
       - 'node-red-data:/data'
       - 'ssh-data:/root/.ssh'
+    working_dir: /data

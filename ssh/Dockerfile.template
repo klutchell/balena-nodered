@@ -1,8 +1,5 @@
 FROM resin/%%RESIN_MACHINE_NAME%%-alpine:latest
 
-# enable container init system
-# ENV INITSYSTEM on
-
 # install git, openssh, and rsync
 RUN apk add --no-cache \
 	git \
@@ -12,6 +9,12 @@ RUN apk add --no-cache \
 
 # install filesystem overlay
 COPY . ./
+
+# adjust sshd config
+RUN sed -i \
+    -e 's/#PasswordAuthentication yes/PasswordAuthentication no/' \
+    -e 's/#GatewayPorts no/GatewayPorts yes/' \
+    /etc/ssh/sshd_config
 
 # set timezone
 RUN apk add --no-cache tzdata
