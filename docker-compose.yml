@@ -1,14 +1,18 @@
-version: '2'
+version: '2.1'
+
 volumes: 
   node-red-data:
   ssh-data:
+  
 services:
+
   node-red:
     build: ./node-red
     ports:
       - '80:1880'
     volumes: 
       - 'node-red-data:/data'
+
   ssh:
     build: ./ssh
     ports:
@@ -16,6 +20,7 @@ services:
     volumes: 
       - 'node-red-data:/data'
       - 'ssh-data:/root/.ssh'
+
   cloud9:
     build: ./cloud9
     ports:
