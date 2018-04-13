@@ -1,27 +1,56 @@
 # resin-nodered
 
 [resin.io](https://resin.io/) stack with the following services:
-* [node-red](https://nodered.org/)
-* cloud9 ide
-* secure shell
+* [node-red iot interface](https://nodered.org/)
+* [cloud9 web ide](c9.io)
+* [ssh server](https://www.ssh.com/ssh/)
 
 ## Getting Started
 
 * https://docs.resin.io/learn/getting-started
 * https://nodered.org/docs/getting-started
-* https://docs.c9.io/docs/getting-started
 
 ## Deployment
 
-```bash
-git push resin master
+```yaml
+# example docker-compose.yml
+version: '2.1'
+
+volumes: 
+  node-red-data:
+  ssh-data:
+  
+services:
+
+  node-red:
+    build: ./node-red
+    ports:
+      - '80:1880'
+    volumes: 
+      - 'node-red-data:/data'
+
+  ssh:
+    build: ./ssh
+    ports:
+      - '22:22'
+    volumes: 
+      - 'node-red-data:/data'
+      - 'ssh-data:/root/.ssh'
+
+  cloud9:
+    build: ./cloud9
+    ports:
+      - '8080:8080'
+    volumes: 
+      - 'node-red-data:/data'
+      - 'ssh-data:/root/.ssh'
 ```
 
 ## Usage
 
-* root@your-device-ip:22 for secure shell
-* http://your-device-ip:8080 for cloud9 ide
-* http://your-device-ip:1880 for node-red console
+* [node-red-docker](https://github.com/node-red/node-red-docker)
+* [cloud9](cloud9/README.md)
+* [ssh](ssh/README.md)
 
 ## Author
 
@@ -34,6 +63,4 @@ _tbd_
 ## Acknowledgments
 
 * https://github.com/node-red/node-red-docker
-* https://github.com/resin-io-projects/resin-openssh
-* https://github.com/hwegge2/rpi-cloud9-ide
-* https://github.com/c9/install
+

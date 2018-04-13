@@ -28,3 +28,4 @@ services:
     volumes: 
       - 'node-red-data:/data'
       - 'ssh-data:/root/.ssh'
+
