@@ -2,7 +2,7 @@
 
 [resin.io](https://resin.io/) stack with the following services:
 * [node-red iot interface](https://nodered.org/)
-* [cloud9 web ide](c9.io)
+* [cloud9 web ide](https://c9.io/)
 * [ssh server](https://www.ssh.com/ssh/)
 
 ## Getting Started
