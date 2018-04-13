@@ -1,4 +1,4 @@
-FROM nodered/node-red-docker:0.18.4-rpi-v8
+FROM nodered/node-red-docker:rpi-v8
 
 USER root
 
