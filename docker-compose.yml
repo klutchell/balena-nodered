@@ -10,22 +10,23 @@ services:
     build: ./node-red
     ports:
       - '80:1880'
-    volumes: 
+    volumes:
       - 'node-red-data:/data'
 
   ssh:
     build: ./ssh
     ports:
       - '22:22'
-    volumes: 
-      - 'node-red-data:/data'
+    volumes:
       - 'ssh-data:/root/.ssh'
+    volumes_from:
+      - node-red
 
   cloud9:
     build: ./cloud9
     ports:
       - '8080:8080'
-    volumes: 
-      - 'node-red-data:/data'
-      - 'ssh-data:/root/.ssh'
+    volumes_from:
+      - ssh
+      - node-red
 
