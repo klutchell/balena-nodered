@@ -19,14 +19,13 @@ services:
       - '22:22'
     volumes:
       - 'ssh-data:/root/.ssh'
-    volumes_from:
-      - node-red
+      - 'node-red-data:/data'
 
   cloud9:
     build: ./cloud9
     ports:
       - '8080:8080'
-    volumes_from:
-      - ssh
-      - node-red
+    volumes:
+      - 'ssh-data:/root/.ssh'
+      - 'node-red-data:/data'
 
