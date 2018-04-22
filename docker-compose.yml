@@ -4,9 +4,7 @@ volumes:
   node-red-data:
   mosquitto-config:
   mosquitto-data:
-  hue2mqtt-data:
   hue2mqtt-config:
-  huesensors2mqtt-data:
   huesensors2mqtt-config:
   cloud9-workspace:
   ssh-data:
@@ -31,14 +29,12 @@ services:
   hue2mqtt:
     build: ./hue2mqtt
     volumes:
-      - 'hue2mqtt-data:/root/.hue2mqtt'
-      - 'hue2mqtt-config:/hue2mqtt-config'
+      - 'hue2mqtt-config:/root/.hue2mqtt'
 
   huesensors2mqtt:
     build: ./huesensors2mqtt
     volumes:
-      - 'huesensors2mqtt-data:/data'
-      - 'huesensors2mqtt-config:/huesensors2mqtt-config'
+      - 'huesensors2mqtt-config:/root/.hue-mqtt-bridge'
 
   ssh:
     build: ./ssh
@@ -49,8 +45,8 @@ services:
       - 'cloud9-workspace:/cloud9-workspace'
       - 'node-red-data:/node-red-data'
       - 'mosquitto-config:/mosquitto-config'
-      - 'hue2mqtt-data:/hue2mqtt-data'
-      - 'huesensors2mqtt-data:/huesensors2mqtt-data'
+      - 'hue2mqtt-config:/hue2mqtt-config'
+      - 'huesensors2mqtt-config:/huesensors2mqtt-config'
 
   cloud9:
     build: ./cloud9
@@ -61,6 +57,6 @@ services:
       - 'cloud9-workspace:/cloud9-workspace'
       - 'node-red-data:/node-red-data'
       - 'mosquitto-config:/mosquitto-config'
-      - 'hue2mqtt-data:/hue2mqtt-data'
-      - 'huesensors2mqtt-data:/huesensors2mqtt-data'
+      - 'hue2mqtt-config:/hue2mqtt-config'
+      - 'huesensors2mqtt-config:/huesensors2mqtt-config'
 
