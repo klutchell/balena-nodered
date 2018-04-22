@@ -18,7 +18,7 @@ services:
     volumes:
       - 'node-red-data:/data'
 
-  mosquitto:
+  mosquitto: 
     image: mbixtech/arm32v7-mosquitto
     ports:
       - '1883:1883'
