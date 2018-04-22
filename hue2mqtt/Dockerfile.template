@@ -6,5 +6,5 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN npm install -g hue2mqtt
 
-CMD [ "hue2mqtt", "--bridge", "192.168.86.131", "--mqtt-url", "mqtt://192.168.86.13", "--polling-interval", "1", "--publish-distinct", "--verbosity", "debug"]
+CMD [ "hue2mqtt", "-b", "192.168.86.131", "-m", "mqtt://192.168.86.13", "-p", "1", "-d"]
 
