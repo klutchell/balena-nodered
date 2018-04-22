@@ -9,9 +9,7 @@ WORKDIR /usr/src/hue-mqtt-bridge
 RUN git clone git://github.com/dale3h/hue-mqtt-bridge.git . \
 	&& npm install
 
-RUN sed -i \
-	-e "s|^var config = require.+$|var config = require('/data/config.json');|" \
-	index.js
+COPY start.sh /usr/bin/start.sh
 
-CMD [ "/bin/bash", "-c", "if [ ! -e /data/config.json ]; then cp -a ./config.sample.json /data/config.json; fi; node index.js" ]
+CMD [ "/usr/bin/start.sh" ]
 
