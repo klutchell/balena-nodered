@@ -2,8 +2,8 @@ version: '2.1'
 
 volumes: 
   node-red-data:
-  mosquitto-config:
-  mosquitto-data:
+  # mosquitto-config:
+  # mosquitto-data:
   ssh-data:
   
 services:
@@ -19,9 +19,9 @@ services:
     image: mbixtech/arm32v7-mosquitto
     ports:
       - '1883:1883'
-    volumes:
-      - 'mosquitto-config:/mosquitto/config'
-      - 'mosquitto-data:/mosquitto/data'
+    # volumes:
+    #   - 'mosquitto-config:/mosquitto/config'
+    #   - 'mosquitto-data:/mosquitto/data'
 
   ssh:
     build: ./ssh
