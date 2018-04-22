@@ -1,4 +1,4 @@
-FROM arm32v7/node:slim
+FROM arm32v7/node
 
 # set timezone
 ENV TZ America/Toronto
