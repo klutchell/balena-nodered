@@ -5,6 +5,7 @@ volumes:
   mosquitto-config:
   mosquitto-data:
   hue2mqtt-data:
+  hue-mqtt-bridge-data:
   ssh-data:
   
 services:
