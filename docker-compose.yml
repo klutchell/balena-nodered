@@ -23,6 +23,9 @@ services:
       - 'mosquitto-config:/mosquitto/config'
       - 'mosquitto-data:/mosquitto/data'
 
+  hue2mqtt:
+    build: ./hue2mqtt
+
   ssh:
     build: ./ssh
     ports:

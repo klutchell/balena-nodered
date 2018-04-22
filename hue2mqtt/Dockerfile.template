@@ -1,0 +1,10 @@
+FROM arm32v7/node:slim
+
+# set timezone
+ENV TZ America/Toronto
+RUN echo $TZ > /etc/timezone && dpkg-reconfigure tzdata
+
+RUN npm install -g hue2mqtt.js
+
+ENTRYPOINT [ "hue2mqtt" ]
+
