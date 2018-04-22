@@ -10,6 +10,5 @@ then
 	ln -s /data/config.json ./config.json
 fi
 
-# node index.js
 npm start
 
