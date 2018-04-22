@@ -29,6 +29,11 @@ services:
     volumes:
       - 'hue2mqtt-data:/root/.hue2mqtt'
 
+  hue-mqtt-bridge:
+    build: ./hue-mqtt-bridge
+    volumes:
+      - 'hue-mqtt-bridge-data:/data'
+
   ssh:
     build: ./ssh
     ports:
