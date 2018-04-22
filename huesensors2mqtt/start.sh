@@ -7,8 +7,9 @@ fi
 
 if [ ! -e ./config.json ]
 then
-	ln -s ./config.json /data/config.json
+	ln -s /data/config.json ./config.json
 fi
 
-node index.js
+# node index.js
+npm start
 
