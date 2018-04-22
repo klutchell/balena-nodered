@@ -4,6 +4,7 @@ volumes:
   node-red-data:
   mosquitto-config:
   mosquitto-data:
+  hue2mqtt-data:
   ssh-data:
   
 services:
@@ -25,6 +26,8 @@ services:
 
   hue2mqtt:
     build: ./hue2mqtt
+    volumes:
+      - 'hue2mqtt-data:/root/.hue2mqtt'
 
   ssh:
     build: ./ssh
