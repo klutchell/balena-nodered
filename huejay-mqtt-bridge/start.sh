@@ -14,5 +14,5 @@ cat >./config.json <<EOL
 }
 EOL
 
-npm start
+node index.js
 
