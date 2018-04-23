@@ -30,8 +30,11 @@ services:
     volumes:
       - 'hue2mqtt-config:/root/.hue2mqtt'
 
-  huesensors2mqtt:
-    build: ./huesensors2mqtt
+  hue-mqtt-bridge:
+    build: ./hue-mqtt-bridge
+
+  huejay-mqtt-bridge:
+    build: ./huejay-mqtt-bridge
 
   ssh:
     build: ./ssh

@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
+FROM arm32v7/node
 
 # set defaults
 ENV C9_WORKSPACE /cloud9-workspace

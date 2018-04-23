@@ -11,8 +11,8 @@ cat >./config.json <<EOL
     {
       "host": "${BRIDGE_IP:-}",
       "username": "${BRIDGE_USER:-}",
-      "interval": ${BRIDGE_INT:-500},
-      "prefix": "${BRIDGE_PRE:-hue}"
+      "interval": ${POLL_INTERVAL:-500},
+      "prefix": "${MQTT_PREFIX:-hue}"
     }
   ]
 }
