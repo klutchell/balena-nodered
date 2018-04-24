@@ -45,7 +45,6 @@ services:
       - 'cloud9-workspace:/cloud9-workspace'
       - 'node-red-data:/node-red-data'
       - 'mosquitto-config:/mosquitto-config'
-      - 'hue2mqtt-config:/hue2mqtt-config'
 
   cloud9:
     build: ./cloud9
@@ -56,5 +55,4 @@ services:
       - 'cloud9-workspace:/cloud9-workspace'
       - 'node-red-data:/node-red-data'
       - 'mosquitto-config:/mosquitto-config'
-      - 'hue2mqtt-config:/hue2mqtt-config'
 
