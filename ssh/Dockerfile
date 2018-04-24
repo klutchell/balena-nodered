@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-alpine:latest
+FROM armhf/alpine
 
 # install git, openssh, and rsync
 RUN apk add --no-cache \
