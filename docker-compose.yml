@@ -33,9 +33,6 @@ services:
   hue-mqtt-bridge:
     build: ./hue-mqtt-bridge
 
-  huejay-mqtt-bridge:
-    build: ./huejay-mqtt-bridge
-
   ssh:
     build: ./ssh
     ports:
