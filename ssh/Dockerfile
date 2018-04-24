@@ -1,4 +1,4 @@
-FROM armhf/alpine
+FROM resin/raspberrypi3-alpine
 
 # set timezone
 RUN apk add --no-cache tzdata
