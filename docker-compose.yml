@@ -33,9 +33,6 @@ services:
     volumes:
       - 'hue2mqtt-config:/root/.hue2mqtt'
 
-  hue-mqtt-bridge:
-    build: ./hue-mqtt-bridge
-
   ssh:
     build: ./ssh
     ports:
