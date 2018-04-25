@@ -2,9 +2,9 @@
 
 params=" "
 [ -n "${VERBOSITY:-}" ] && params+="-v ${VERBOSITY} "
-[ -n "${NAME:-}" ] && params+="-n ${NAME} "
+[ -n "${MQTT_PREFIX:-}" ] && params+="-n ${MQTT_PREFIX} "
 [ -n "${MQTT_URL:-}" ] && params+="-m ${MQTT_URL} "
-[ -n "${BRIDGE:-}" ] && params+="-b ${BRIDGE} "
+[ -n "${BRIDGE_IP:-}" ] && params+="-b ${BRIDGE_IP} "
 [ -n "${POLLING_INTERVAL:-}" ] && params+="-p ${POLLING_INTERVAL} "
 [ -n "${PUBLISH_DISTINCT:-}" ] && params+="-d ${PUBLISH_DISTINCT} "
 
