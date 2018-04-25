@@ -12,5 +12,5 @@ params=" "
 [ "${MQTT_RETAIN:-true}" == true ] && params+="--mqtt-retain "
 [ "${INSECURE:-false}" == true ] && params+="--insecure "
 
-hue2mqtt ${params}
+node index.js ${params}
 
