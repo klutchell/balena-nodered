@@ -8,5 +8,7 @@ WORKDIR /usr/src/hue2mqtt
 
 RUN npm install -g hue2mqtt
 
-CMD [ "hue2mqtt" ]
+COPY start.sh /usr/bin/start.sh
+
+CMD [ "/usr/bin/start.sh" ]
 
