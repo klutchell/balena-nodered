@@ -28,6 +28,11 @@ services:
     volumes:
       - 'hue2mqtt-config:/root/.hue2mqtt'
 
+  my-hue2mqtt:
+    build: ./my-hue2mqtt
+    volumes:
+      - 'hue2mqtt-config:/root/.hue2mqtt'
+
   hue-mqtt-bridge:
     build: ./hue-mqtt-bridge
 
