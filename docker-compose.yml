@@ -2,7 +2,6 @@ version: '2.1'
 
 volumes: 
   node-red-data:
-  mosquitto-config:
   mosquitto-data:
   hue2mqtt-config:
   cloud9-workspace:
@@ -18,12 +17,11 @@ services:
       - 'node-red-data:/data'
 
   mosquitto: 
-    image: mbixtech/arm32v7-mosquitto
+    image: reverie/arm32v7-mosquitto
     ports:
       - '1883:1883'
     volumes:
-      - 'mosquitto-config:/mosquitto/config'
-      - 'mosquitto-data:/mosquitto/data'
+      - 'mosquitto-data:/etc/mosquitto'
 
   hue2mqtt:
     build: ./hue2mqtt
@@ -41,7 +39,7 @@ services:
       - 'ssh-data:/root/.ssh'
       - 'cloud9-workspace:/cloud9-workspace'
       - 'node-red-data:/node-red-data'
-      - 'mosquitto-config:/mosquitto-config'
+      - 'mosquitto-data:/mosquitto-data'
 
   cloud9:
     build: ./cloud9
@@ -51,5 +49,5 @@ services:
       - 'ssh-data:/root/.ssh'
       - 'cloud9-workspace:/cloud9-workspace'
       - 'node-red-data:/node-red-data'
-      - 'mosquitto-config:/mosquitto-config'
+      - 'mosquitto-data:/mosquitto-data'
 
