@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 params=" "
 [ -n "${VERBOSITY:-}" ] && params+="-v ${VERBOSITY} "
