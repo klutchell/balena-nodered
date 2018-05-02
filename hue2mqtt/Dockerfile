@@ -1,9 +1,5 @@
 FROM arm32v7/node
 
-# set timezone
-ENV TZ America/Toronto
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
 WORKDIR /usr/src/hue2mqtt
 
 RUN git clone --depth 1 https://github.com/klutchell/hue2mqtt.js.git . \
