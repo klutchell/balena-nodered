@@ -1,6 +1,7 @@
 version: '2.1'
 
-volumes: 
+volumes:
+
   node-red-data:
   mosquitto-data:
   hue2mqtt-config:
