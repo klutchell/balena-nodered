@@ -39,7 +39,7 @@ services:
       - 'mosquitto-data:/mosquitto-data'
 
   cloud9:
-    build: ./cloud9
+    image: klutchell/resin-cloud9
     ports:
       - '8080:8080'
     volumes:

@@ -2,6 +2,8 @@
 
 [resin.io](https://resin.io/) stack with the following services:
 * [node-red iot interface](https://nodered.org/)
+* [mosquitto mqtt broker](https://mosquitto.org/)
+* [hue2mqtt bridge](https://github.com/klutchell/hue2mqtt.js)
 * [cloud9 web ide](https://c9.io/)
 * [ssh server](https://www.ssh.com/ssh/)
 
@@ -11,64 +13,11 @@
 
 ## Deployment
 
-```yaml
-# example docker-compose.yml
-version: '2.1'
-
-volumes: 
-  node-red-data:
-  mosquitto-data:
-  hue2mqtt-config:
-  cloud9-workspace:
-  ssh-data:
-  
-services:
-
-  node-red:
-    build: ./node-red
-    ports:
-      - '80:1880'
-    volumes:
-      - 'node-red-data:/data'
-
-  mosquitto: 
-    image: reverie/arm32v7-mosquitto
-    ports:
-      - '1883:1883'
-    volumes:
-      - 'mosquitto-data:/etc/mosquitto'
-
-  hue2mqtt:
-    build: ./hue2mqtt
-    volumes:
-      - 'hue2mqtt-config:/root/.hue2mqtt'
-
-  ssh:
-    image: klutchell/resin-ssh
-    ports:
-      - '22:22'
-    volumes:
-      - 'ssh-data:/root/.ssh'
-      - 'cloud9-workspace:/cloud9-workspace'
-      - 'node-red-data:/node-red-data'
-      - 'mosquitto-data:/mosquitto-data'
-
-  cloud9:
-    build: ./cloud9
-    ports:
-      - '8080:8080'
-    volumes:
-      - 'ssh-data:/root/.ssh'
-      - 'cloud9-workspace:/cloud9-workspace'
-      - 'node-red-data:/node-red-data'
-      - 'mosquitto-data:/mosquitto-data'
-```
+see example [docker-compose.yaml](docker-compose.yaml)
 
 ## Usage
 
-* [node-red-docker](https://github.com/node-red/node-red-docker)
-* [cloud9](cloud9/README.md)
-* [ssh](https://github.com/klutchell/resin-ssh)
+browse to `http://<device-ip>:80` to access the node-red admin interface
 
 ## Author
 
