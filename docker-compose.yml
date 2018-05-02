@@ -29,7 +29,7 @@ services:
       - 'hue2mqtt-config:/root/.hue2mqtt'
 
   ssh:
-    build: ./ssh
+    image: klutchell/resin-ssh
     ports:
       - '22:22'
     volumes:

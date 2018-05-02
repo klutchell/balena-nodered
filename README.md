@@ -17,6 +17,9 @@ version: '2.1'
 
 volumes: 
   node-red-data:
+  mosquitto-data:
+  hue2mqtt-config:
+  cloud9-workspace:
   ssh-data:
   
 services:
@@ -28,13 +31,27 @@ services:
     volumes:
       - 'node-red-data:/data'
 
+  mosquitto: 
+    image: reverie/arm32v7-mosquitto
+    ports:
+      - '1883:1883'
+    volumes:
+      - 'mosquitto-data:/etc/mosquitto'
+
+  hue2mqtt:
+    build: ./hue2mqtt
+    volumes:
+      - 'hue2mqtt-config:/root/.hue2mqtt'
+
   ssh:
-    build: ./ssh
+    image: klutchell/resin-ssh
     ports:
       - '22:22'
     volumes:
       - 'ssh-data:/root/.ssh'
-      - 'node-red-data:/data'
+      - 'cloud9-workspace:/cloud9-workspace'
+      - 'node-red-data:/node-red-data'
+      - 'mosquitto-data:/mosquitto-data'
 
   cloud9:
     build: ./cloud9
@@ -42,14 +59,16 @@ services:
       - '8080:8080'
     volumes:
       - 'ssh-data:/root/.ssh'
-      - 'node-red-data:/data'
+      - 'cloud9-workspace:/cloud9-workspace'
+      - 'node-red-data:/node-red-data'
+      - 'mosquitto-data:/mosquitto-data'
 ```
 
 ## Usage
 
 * [node-red-docker](https://github.com/node-red/node-red-docker)
 * [cloud9](cloud9/README.md)
-* [ssh](ssh/README.md)
+* [ssh](https://github.com/klutchell/resin-ssh)
 
 ## Author
 
