@@ -29,23 +29,21 @@ services:
     volumes:
       - 'hue2mqtt-config:/root/.hue2mqtt'
 
-  ssh:
-    image: klutchell/resin-ssh
+  cloud9:
+    image: klutchell/resin-cloud9
     ports:
       - '22:22'
     volumes:
       - 'ssh-data:/root/.ssh'
-      - 'cloud9-workspace:/cloud9-workspace'
-      - 'node-red-data:/node-red-data'
-      - 'mosquitto-data:/mosquitto-data'
+      - 'cloud9-workspace:/workspace'
 
-  cloud9:
-    image: klutchell/resin-cloud9
+  ssh:
+    image: klutchell/resin-ssh
     ports:
       - '8080:8080'
     volumes:
       - 'ssh-data:/root/.ssh'
-      - 'cloud9-workspace:/cloud9-workspace'
-      - 'node-red-data:/node-red-data'
-      - 'mosquitto-data:/mosquitto-data'
+      - 'cloud9-workspace:/cloud9-workspace:ro'
+      - 'node-red-data:/node-red-data:ro'
+      - 'mosquitto-data:/mosquitto-data:ro'
 
