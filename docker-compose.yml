@@ -32,7 +32,7 @@ services:
   cloud9:
     image: klutchell/resin-cloud9
     ports:
-      - '22:22'
+      - '8080:8080'
     volumes:
       - 'ssh-data:/root/.ssh'
       - 'cloud9-workspace:/workspace'
@@ -40,7 +40,7 @@ services:
   ssh:
     image: klutchell/resin-ssh
     ports:
-      - '8080:8080'
+      - '22:22'
     volumes:
       - 'ssh-data:/root/.ssh'
       - 'cloud9-workspace:/cloud9-workspace:ro'
