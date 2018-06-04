@@ -31,6 +31,7 @@ services:
 
   cloud9:
     image: klutchell/resin-cloud9
+    privileged: true
     ports:
       - '8080:8080'
     volumes:
