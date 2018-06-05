@@ -5,6 +5,7 @@ volumes:
   node-red-data:
   mosquitto-data:
   hue2mqtt-config:
+  cloud9-data:
   cloud9-workspace:
   ssh-data:
   
@@ -25,21 +26,21 @@ services:
       - 'mosquitto-data:/etc/mosquitto'
 
   hue2mqtt:
-    build: ./hue2mqtt
+    image: klutchell/hue2mqtt:rpi3-latest
     volumes:
       - 'hue2mqtt-config:/root/.hue2mqtt'
 
   cloud9:
-    image: klutchell/resin-cloud9
-    privileged: true
+    image: klutchell/cloud9:rpi3-latest
     ports:
       - '8080:8080'
     volumes:
       - 'ssh-data:/root/.ssh'
+      - 'cloud9-data:/root/.c9'
       - 'cloud9-workspace:/workspace'
 
   ssh:
-    image: klutchell/resin-ssh
+    image: klutchell/ssh:rpi3-a0b03c9
     ports:
       - '22:22'
     volumes:
