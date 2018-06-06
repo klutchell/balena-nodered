@@ -18,8 +18,8 @@ services:
       - '80:1880'
     volumes:
       - 'node-red-data:/data'
-    # command: ["npm", "start", "--", "--userDir", "/data"]
-    command: ["sh", "-c", "echo $TZ > /etc/timezone && dpkg-reconfigure tzdata && npm start -- --userDir /data"]
+    command: ["npm", "start", "--", "--userDir", "/data"]
+    # command: ["sh", "-c", "echo $TZ > /etc/timezone && dpkg-reconfigure tzdata && npm start -- --userDir /data"]
 
   mosquitto: 
     image: reverie/arm32v7-mosquitto
