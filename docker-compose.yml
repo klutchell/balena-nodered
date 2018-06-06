@@ -12,14 +12,11 @@ volumes:
 services:
 
   node-red:
-    # build: ./node-red
     image: nodered/node-red-docker:rpi-v8
     ports:
       - '80:1880'
     volumes:
       - 'node-red-data:/data'
-    command: ["npm", "start", "--", "--userDir", "/data"]
-    # command: ["sh", "-c", "echo $TZ > /etc/timezone && dpkg-reconfigure tzdata && npm start -- --userDir /data"]
 
   mosquitto: 
     image: reverie/arm32v7-mosquitto
@@ -49,7 +46,7 @@ services:
       - '22:22'
     volumes:
       - 'ssh-data:/root/.ssh'
-      - 'cloud9-workspace:/cloud9-workspace:ro'
-      - 'node-red-data:/node-red-data:ro'
-      - 'mosquitto-data:/mosquitto-data:ro'
+      - 'cloud9-workspace:/cloud9-workspace'
+      - 'node-red-data:/node-red-data'
+      - 'mosquitto-data:/mosquitto-data'
 
