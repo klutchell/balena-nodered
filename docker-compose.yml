@@ -31,7 +31,8 @@ services:
       - 'hue2mqtt-config:/root/.hue2mqtt'
 
   cloud9:
-    image: klutchell/cloud9:rpi3-latest
+    image: klutchell/cloud9:rpi3-52bffe8
+    privileged: true
     ports:
       - '8080:8080'
     volumes:
