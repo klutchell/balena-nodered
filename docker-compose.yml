@@ -26,12 +26,12 @@ services:
       - 'mosquitto-data:/etc/mosquitto'
 
   hue2mqtt:
-    image: klutchell/hue2mqtt:rpi3-cdae0f2
+    image: klutchell/hue2mqtt:armhf-0.0.6
     volumes:
       - 'hue2mqtt-config:/root/.hue2mqtt'
 
   cloud9:
-    image: klutchell/cloud9:rpi3-52bffe8
+    image: klutchell/cloud9:armhf-0.0.4
     privileged: true
     ports:
       - '8080:8080'
@@ -41,7 +41,7 @@ services:
       - 'cloud9-workspace:/workspace'
 
   ssh:
-    image: klutchell/ssh:armhf-0.0.11
+    image: klutchell/ssh:armhf-0.0.13
     ports:
       - '22:22'
     volumes:
